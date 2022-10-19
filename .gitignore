@@ -1,0 +1,8 @@
+build
+/standoff.mlp
+._*
+assets/91290A432*.stl
+assets/97151A106*.stl
+*.blend
+*.blend?
+.DS_Store
