@@ -8,6 +8,7 @@ try:
     # proj_path = os.getcwd() + "/build/" + proj_name
     proj_path = os.getcwd() + "/build/standoff.blend"
 
+    # Delete the initial cube
     # https://blender.stackexchange.com/questions/27234/python-how-to-completely-remove-an-object
     bpy.ops.object.select_all(action='DESELECT')
     bpy.data.objects['Cube'].select_set(True)
@@ -18,19 +19,29 @@ try:
 
     bpy.ops.import_mesh.stl(filepath=bpy.path.abspath("//../build/standoff.stl"))
     standoff=bpy.context.scene.objects["standoff"]
+
+    bpy.ops.import_mesh.stl(filepath=bpy.path.abspath("//../assets/91290A432_Black-Oxide Alloy Steel Socket Head Screw.stl"))
+    speaker_screw=bpy.context.scene.objects["91290A432_Black-Oxide Alloy Steel Socket Head Screw"]
+
+    bpy.ops.import_mesh.stl(filepath=bpy.path.abspath("//../assets/97151A106_Steel Screws for Joining Drywall to Wood.stl"))
+    wall_screw=bpy.context.scene.objects["97151A106_Steel Screws for Joining Drywall to Wood"]
+
     standoff.scale = (1/25.4, 1/25.4, 1/25.4)
-    #bpy.context.view_layer.objects.active = standoff
     mat = bpy.data.materials.new(name="standoff_skin")
     mat.diffuse_color = (1, 0.136, 0, 1)
     standoff.data.materials.append(mat)
 
-    bpy.ops.import_mesh.stl(filepath=bpy.path.abspath("//../assets/91290A432_Black-Oxide Alloy Steel Socket Head Screw.stl"))
-    speaker_screw=bpy.context.scene.objects["91290A432_Black-Oxide Alloy Steel Socket Head Screw"]
     speaker_screw.location = (0, 0, 1)
     speaker_screw.rotation_euler = (0, math.radians(180), 0)
     mat = bpy.data.materials.new(name="speaker_screw_skin")
     mat.diffuse_color = (0.011, 0.047, 0.220, 1)
     speaker_screw.data.materials.append(mat)
+
+    wall_screw.location = (0, 1.63628, -1.09458)
+    wall_screw.rotation_euler = (0, math.radians(90), 0)
+    mat = bpy.data.materials.new(name="wall_screw_skin")
+    mat.diffuse_color = (0.011, 0.047, 0.220, 1)
+    wall_screw.data.materials.append(mat)
 
     bpy.ops.wm.save_as_mainfile(filepath=proj_path)
 
