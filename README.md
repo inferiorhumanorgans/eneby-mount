@@ -13,13 +13,13 @@ IKEA's Eneby 20 and Eneby 30 speakers are good sounding piece of stylish kit. Un
 
 This project is written in an OpenSCAD-compatible language and can be built with either [OpenSCAD](http://openscad.org/) or [ImplicitCAD](https://implicitcad.org/).
 
-To generate an STL rendered from the source run `make build/standoff.stl` (with GNU Make).  This will render the STL with ImplicitCAD.  Running `make` with no arguments will build the STL as well as a MeshLab project with models for the fastening hardware to verify fit.
+To generate an STL rendered from the source run `make build/standoff.stl` (with GNU Make).  This will render the STL with ImplicitCAD.  Running `make` with no arguments will build the STL as well as a Blender project with models for the fastening hardware to verify fit.  To build the equivalent Meshlab project run `make meshlab`.
 
-*However* I've sourced the 3D models for the hardware from [McMaster-Carr](https://www.mcmaster.com/cad-models/cad-models/).  While McMaster-Carr has 3D models for all sorts of hardware they are not licensed for redistribution.  Additionally McMaster does not provide models in STL format.  To build the MeshLab project:
+*However* I've sourced the 3D models for the hardware from [McMaster-Carr](https://www.mcmaster.com/cad-models/cad-models/).  While McMaster-Carr has 3D models for all sorts of hardware they are not licensed for redistribution.  Additionally McMaster does not provide models in STL format.  To build the Blender project:
 * Download the hardware models in your preferred format
-* Convert the models to STL (or any format that MeshLab is compatible with)
+* Convert the models to STL
 * Place the models in the `assets` directory
-* Finally, run `make`
+* Finally, run `make blender` or `make meshlab`
 
 Fastening hardware:
 * McMaster [97151A106](https://www.mcmaster.com/97151A106/) (#8 wood screw)
