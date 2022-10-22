@@ -125,7 +125,7 @@ module keyhole() {
                     translate([0, BASE_HEIGHT + BASE_TOP_PADDING - WALL_SCREW_HEAD_DIAMETER]) {
                         circle(d = WALL_SCREW_HEAD_DIAMETER);
                     }
-                    translate([0, BASE_HEIGHT + BASE_TOP_PADDING - RADIUS]) {
+                    translate([0, BASE_HEIGHT + BASE_TOP_PADDING + (RADIUS/2)]) {
                         circle(d = WALL_SCREW_DIAMETER);
                         translate([-WALL_SCREW_DIAMETER / 2, -WALL_SCREW_HEAD_DIAMETER + RADIUS]) {
                             polygon([
